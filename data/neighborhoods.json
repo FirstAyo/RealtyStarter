@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Kitsilano",
+    "description": "Kitsilano is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood1/1200/800"
+  },
+  {
+    "id": 2,
+    "name": "Yaletown",
+    "description": "Yaletown is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood2/1200/800"
+  },
+  {
+    "id": 3,
+    "name": "Mount Pleasant",
+    "description": "Mount Pleasant is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood3/1200/800"
+  },
+  {
+    "id": 4,
+    "name": "Coal Harbour",
+    "description": "Coal Harbour is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood4/1200/800"
+  },
+  {
+    "id": 5,
+    "name": "West End",
+    "description": "West End is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood5/1200/800"
+  },
+  {
+    "id": 6,
+    "name": "Metrotown",
+    "description": "Metrotown is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood6/1200/800"
+  },
+  {
+    "id": 7,
+    "name": "Brentwood",
+    "description": "Brentwood is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood7/1200/800"
+  },
+  {
+    "id": 8,
+    "name": "Steveston",
+    "description": "Steveston is a vibrant neighborhood known for parks, caf\u00e9s, and easy transit.",
+    "heroImage": "https://picsum.photos/seed/hood8/1200/800"
+  }
+]

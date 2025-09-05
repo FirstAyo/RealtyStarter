@@ -1,0 +1,11 @@
+{
+  "web_root": "/mnt/data/real-estate-starter/real-estate-starter",
+  "pages_count": 15,
+  "css_count": 16,
+  "js_count": 1,
+  "detected_dependencies": {
+    "jQuery": [
+      "https://code.jquery.com/jquery-3.7.1.min.js"
+    ]
+  }
+}

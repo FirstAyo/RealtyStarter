@@ -1,0 +1,382 @@
+[
+  {
+    "id": 1,
+    "title": "1BR House in Yaletown",
+    "price": 1150000,
+    "beds": 1,
+    "baths": 1,
+    "sqft": 983,
+    "address": "3682 Main St",
+    "city": "Coquitlam",
+    "neighborhoodId": 2,
+    "agentId": 10,
+    "images": [
+      "https://picsum.photos/seed/prop1_1/960/640",
+      "https://picsum.photos/seed/prop1_2/960/640",
+      "https://picsum.photos/seed/prop1_3/960/640",
+      "https://picsum.photos/seed/prop1_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 2,
+    "title": "5BR Condo in Kitsilano",
+    "price": 650000,
+    "beds": 5,
+    "baths": 2,
+    "sqft": 1502,
+    "address": "7459 Oak St",
+    "city": "Surrey",
+    "neighborhoodId": 1,
+    "agentId": 9,
+    "images": [
+      "https://picsum.photos/seed/prop2_1/960/640",
+      "https://picsum.photos/seed/prop2_2/960/640",
+      "https://picsum.photos/seed/prop2_3/960/640",
+      "https://picsum.photos/seed/prop2_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 3,
+    "title": "2BR Townhome in Brentwood",
+    "price": 850000,
+    "beds": 2,
+    "baths": 1,
+    "sqft": 1978,
+    "address": "1774 Maple Ave",
+    "city": "Burnaby",
+    "neighborhoodId": 7,
+    "agentId": 6,
+    "images": [
+      "https://picsum.photos/seed/prop3_1/960/640",
+      "https://picsum.photos/seed/prop3_2/960/640",
+      "https://picsum.photos/seed/prop3_3/960/640",
+      "https://picsum.photos/seed/prop3_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 4,
+    "title": "3BR Townhome in Metrotown",
+    "price": 1450000,
+    "beds": 3,
+    "baths": 1,
+    "sqft": 2481,
+    "address": "8885 Maple Ave",
+    "city": "Vancouver",
+    "neighborhoodId": 6,
+    "agentId": 6,
+    "images": [
+      "https://picsum.photos/seed/prop4_1/960/640",
+      "https://picsum.photos/seed/prop4_2/960/640",
+      "https://picsum.photos/seed/prop4_3/960/640",
+      "https://picsum.photos/seed/prop4_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 5,
+    "title": "3BR House in West End",
+    "price": 2100000,
+    "beds": 3,
+    "baths": 3,
+    "sqft": 1387,
+    "address": "1239 Pine St",
+    "city": "Vancouver",
+    "neighborhoodId": 5,
+    "agentId": 10,
+    "images": [
+      "https://picsum.photos/seed/prop5_1/960/640",
+      "https://picsum.photos/seed/prop5_2/960/640",
+      "https://picsum.photos/seed/prop5_3/960/640",
+      "https://picsum.photos/seed/prop5_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 6,
+    "title": "2BR House in West End",
+    "price": 2100000,
+    "beds": 2,
+    "baths": 1,
+    "sqft": 2156,
+    "address": "4654 Davie St",
+    "city": "Burnaby",
+    "neighborhoodId": 5,
+    "agentId": 2,
+    "images": [
+      "https://picsum.photos/seed/prop6_1/960/640",
+      "https://picsum.photos/seed/prop6_2/960/640",
+      "https://picsum.photos/seed/prop6_3/960/640",
+      "https://picsum.photos/seed/prop6_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 7,
+    "title": "2BR House in Mount Pleasant",
+    "price": 850000,
+    "beds": 2,
+    "baths": 3,
+    "sqft": 1693,
+    "address": "1269 Granville St",
+    "city": "Richmond",
+    "neighborhoodId": 3,
+    "agentId": 6,
+    "images": [
+      "https://picsum.photos/seed/prop7_1/960/640",
+      "https://picsum.photos/seed/prop7_2/960/640",
+      "https://picsum.photos/seed/prop7_3/960/640",
+      "https://picsum.photos/seed/prop7_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 8,
+    "title": "4BR House in Coal Harbour",
+    "price": 1150000,
+    "beds": 4,
+    "baths": 2,
+    "sqft": 3221,
+    "address": "9225 Main St",
+    "city": "Coquitlam",
+    "neighborhoodId": 4,
+    "agentId": 3,
+    "images": [
+      "https://picsum.photos/seed/prop8_1/960/640",
+      "https://picsum.photos/seed/prop8_2/960/640",
+      "https://picsum.photos/seed/prop8_3/960/640",
+      "https://picsum.photos/seed/prop8_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 9,
+    "title": "1BR Condo in Kitsilano",
+    "price": 2100000,
+    "beds": 1,
+    "baths": 2,
+    "sqft": 2243,
+    "address": "4486 Maple Ave",
+    "city": "Richmond",
+    "neighborhoodId": 1,
+    "agentId": 4,
+    "images": [
+      "https://picsum.photos/seed/prop9_1/960/640",
+      "https://picsum.photos/seed/prop9_2/960/640",
+      "https://picsum.photos/seed/prop9_3/960/640",
+      "https://picsum.photos/seed/prop9_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 10,
+    "title": "4BR Townhome in Metrotown",
+    "price": 1750000,
+    "beds": 4,
+    "baths": 2,
+    "sqft": 3233,
+    "address": "7617 Granville St",
+    "city": "Surrey",
+    "neighborhoodId": 6,
+    "agentId": 4,
+    "images": [
+      "https://picsum.photos/seed/prop10_1/960/640",
+      "https://picsum.photos/seed/prop10_2/960/640",
+      "https://picsum.photos/seed/prop10_3/960/640",
+      "https://picsum.photos/seed/prop10_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 11,
+    "title": "3BR Townhome in Coal Harbour",
+    "price": 1450000,
+    "beds": 3,
+    "baths": 3,
+    "sqft": 2994,
+    "address": "7119 Kingsway",
+    "city": "Burnaby",
+    "neighborhoodId": 4,
+    "agentId": 9,
+    "images": [
+      "https://picsum.photos/seed/prop11_1/960/640",
+      "https://picsum.photos/seed/prop11_2/960/640",
+      "https://picsum.photos/seed/prop11_3/960/640",
+      "https://picsum.photos/seed/prop11_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 12,
+    "title": "1BR House in Mount Pleasant",
+    "price": 1150000,
+    "beds": 1,
+    "baths": 1,
+    "sqft": 1049,
+    "address": "2604 Granville St",
+    "city": "Burnaby",
+    "neighborhoodId": 3,
+    "agentId": 9,
+    "images": [
+      "https://picsum.photos/seed/prop12_1/960/640",
+      "https://picsum.photos/seed/prop12_2/960/640",
+      "https://picsum.photos/seed/prop12_3/960/640",
+      "https://picsum.photos/seed/prop12_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 13,
+    "title": "5BR House in Yaletown",
+    "price": 1150000,
+    "beds": 5,
+    "baths": 2,
+    "sqft": 2767,
+    "address": "4219 Pine St",
+    "city": "North Vancouver",
+    "neighborhoodId": 2,
+    "agentId": 7,
+    "images": [
+      "https://picsum.photos/seed/prop13_1/960/640",
+      "https://picsum.photos/seed/prop13_2/960/640",
+      "https://picsum.photos/seed/prop13_3/960/640",
+      "https://picsum.photos/seed/prop13_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 14,
+    "title": "3BR Townhome in Yaletown",
+    "price": 2100000,
+    "beds": 3,
+    "baths": 3,
+    "sqft": 1993,
+    "address": "1927 Oak St",
+    "city": "Coquitlam",
+    "neighborhoodId": 2,
+    "agentId": 9,
+    "images": [
+      "https://picsum.photos/seed/prop14_1/960/640",
+      "https://picsum.photos/seed/prop14_2/960/640",
+      "https://picsum.photos/seed/prop14_3/960/640",
+      "https://picsum.photos/seed/prop14_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 15,
+    "title": "3BR House in Steveston",
+    "price": 1750000,
+    "beds": 3,
+    "baths": 3,
+    "sqft": 1331,
+    "address": "8417 Maple Ave",
+    "city": "Burnaby",
+    "neighborhoodId": 8,
+    "agentId": 1,
+    "images": [
+      "https://picsum.photos/seed/prop15_1/960/640",
+      "https://picsum.photos/seed/prop15_2/960/640",
+      "https://picsum.photos/seed/prop15_3/960/640",
+      "https://picsum.photos/seed/prop15_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 16,
+    "title": "2BR Townhome in Coal Harbour",
+    "price": 850000,
+    "beds": 2,
+    "baths": 3,
+    "sqft": 2772,
+    "address": "109 Broadway",
+    "city": "Richmond",
+    "neighborhoodId": 4,
+    "agentId": 3,
+    "images": [
+      "https://picsum.photos/seed/prop16_1/960/640",
+      "https://picsum.photos/seed/prop16_2/960/640",
+      "https://picsum.photos/seed/prop16_3/960/640",
+      "https://picsum.photos/seed/prop16_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 17,
+    "title": "3BR Condo in Yaletown",
+    "price": 2100000,
+    "beds": 3,
+    "baths": 1,
+    "sqft": 837,
+    "address": "4046 Maple Ave",
+    "city": "Vancouver",
+    "neighborhoodId": 2,
+    "agentId": 6,
+    "images": [
+      "https://picsum.photos/seed/prop17_1/960/640",
+      "https://picsum.photos/seed/prop17_2/960/640",
+      "https://picsum.photos/seed/prop17_3/960/640",
+      "https://picsum.photos/seed/prop17_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 18,
+    "title": "5BR Townhome in Steveston",
+    "price": 2100000,
+    "beds": 5,
+    "baths": 1,
+    "sqft": 1125,
+    "address": "7887 Granville St",
+    "city": "Coquitlam",
+    "neighborhoodId": 8,
+    "agentId": 2,
+    "images": [
+      "https://picsum.photos/seed/prop18_1/960/640",
+      "https://picsum.photos/seed/prop18_2/960/640",
+      "https://picsum.photos/seed/prop18_3/960/640",
+      "https://picsum.photos/seed/prop18_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 19,
+    "title": "2BR Townhome in Brentwood",
+    "price": 1450000,
+    "beds": 2,
+    "baths": 3,
+    "sqft": 1876,
+    "address": "6637 Broadway",
+    "city": "Surrey",
+    "neighborhoodId": 7,
+    "agentId": 4,
+    "images": [
+      "https://picsum.photos/seed/prop19_1/960/640",
+      "https://picsum.photos/seed/prop19_2/960/640",
+      "https://picsum.photos/seed/prop19_3/960/640",
+      "https://picsum.photos/seed/prop19_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  },
+  {
+    "id": 20,
+    "title": "2BR House in Steveston",
+    "price": 650000,
+    "beds": 2,
+    "baths": 1,
+    "sqft": 1984,
+    "address": "444 Main St",
+    "city": "Surrey",
+    "neighborhoodId": 8,
+    "agentId": 2,
+    "images": [
+      "https://picsum.photos/seed/prop20_1/960/640",
+      "https://picsum.photos/seed/prop20_2/960/640",
+      "https://picsum.photos/seed/prop20_3/960/640",
+      "https://picsum.photos/seed/prop20_4/960/640"
+    ],
+    "description": "Bright, updated home featuring open-concept living, modern kitchen, and a private outdoor space. Close to transit, shops, and parks."
+  }
+]

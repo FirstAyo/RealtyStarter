@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neighborhoods · RealtyStarter</title>
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/neighborhoods.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="logo" href="index.html" aria-label="Realty Starter Home"
+          >Realty<span>Starter</span></a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="index.html" class="">Home</a>
+          <a href="listings.html" class="">Listings</a>
+          <a href="agents.html" class="">Agents</a>
+          <a href="neighborhoods.html" class="active">Neighborhoods</a>
+          <a href="blog.html" class="">Blog</a>
+          <a href="about.html" class="">About</a>
+          <a href="contact.html" class="">Contact</a>
+        </nav>
+        <div class="controls">
+          <button
+            id="themeToggle"
+            class="btn ghost"
+            onclick="toggleTheme()"
+            aria-pressed="false"
+            aria-label="Toggle dark mode"
+          >
+            🌓
+          </button>
+          <button
+            id="hamburger"
+            class="hamburger"
+            aria-label="Menu"
+            aria-controls="navLinks"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="content" class="container">
+      <section class="hero">
+        <p class="badge">Explore</p>
+        <h1>Neighborhoods</h1>
+      </section>
+
+      <section class="section">
+        <div id="hoodGrid" class="grid cols-3"></div>
+      </section>
+
+      <script>
+        $(async function () {
+          const hoods = await loadJSON("data/neighborhoods.json");
+          const $grid = $("#hoodGrid");
+          hoods.forEach((n) =>
+            $grid.append(`
+    <article class="card">
+      <img src="${n.heroImage}" alt="${n.name}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="neighborhood-detail.html?id=${n.id}">${n.name}</a></h3>
+        <p>${n.description}</p>
+      </div>
+    </article>`)
+          );
+        });
+      </script>
+    </main>
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © 2025 RealtyStarter — A student-friendly real estate template.
+        </div>
+        <div>
+          <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

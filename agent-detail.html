@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent Profile · RealtyStarter</title>
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/agent-detail.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="logo" href="index.html" aria-label="Realty Starter Home"
+          >Realty<span>Starter</span></a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="index.html" class="">Home</a>
+          <a href="listings.html" class="">Listings</a>
+          <a href="agents.html" class="">Agents</a>
+          <a href="neighborhoods.html" class="">Neighborhoods</a>
+          <a href="blog.html" class="">Blog</a>
+          <a href="about.html" class="">About</a>
+          <a href="contact.html" class="">Contact</a>
+        </nav>
+        <div class="controls">
+          <button
+            id="themeToggle"
+            class="btn ghost"
+            onclick="toggleTheme()"
+            aria-pressed="false"
+            aria-label="Toggle dark mode"
+          >
+            🌓
+          </button>
+          <button
+            id="hamburger"
+            class="hamburger"
+            aria-label="Menu"
+            aria-controls="navLinks"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="content" class="container">
+      <section class="hero">
+        <p class="badge">Agent</p>
+        <h1 id="name">Agent Name</h1>
+        <div class="meta" id="title"></div>
+      </section>
+
+      <section class="section">
+        <div class="grid cols-2">
+          <div class="card">
+            <img id="photo" src="" alt="Agent photo" loading="lazy" />
+          </div>
+          <div class="card card-content">
+            <p id="bio"></p>
+            <p class="meta" id="contact"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Agent's Listings</h2>
+        <div id="agentProps" class="grid cols-3"></div>
+      </section>
+
+      <script>
+        (async function () {
+          const id = $params.get("id");
+          const agents = await loadJSON("data/agents.json");
+          const a =
+            agents.find((x) => String(x.id) === String(id)) || agents[0];
+          $("#name").text(a.name);
+          $("#title").text(a.title);
+          $("#bio").text(a.bio);
+          $("#photo").attr("src", a.photo).attr("alt", a.name);
+          $("#contact").html(
+            `<a href="mailto:${a.email}">${a.email}</a> · <a href="tel:${a.phone}">${a.phone}</a>`
+          );
+
+          const props = await loadJSON("data/properties.json");
+          const $grid = $("#agentProps").empty();
+          props
+            .filter((p) => String(p.agentId) === String(a.id))
+            .forEach((p) =>
+              $grid.append(`
+    <article class="card">
+      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
+                p.title
+              }</a></h3>
+        <div class="price">${$formatPrice(p.price)}</div>
+        <div class="meta">${p.city}</div>
+      </div>
+    </article>`)
+            );
+        })();
+      </script>
+    </main>
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © 2025 RealtyStarter — A student-friendly real estate template.
+        </div>
+        <div>
+          <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

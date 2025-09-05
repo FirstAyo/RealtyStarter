@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Property Detail · RealtyStarter</title>
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/listing-detail.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="logo" href="index.html" aria-label="Realty Starter Home"
+          >Realty<span>Starter</span></a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="index.html" class="">Home</a>
+          <a href="listings.html" class="">Listings</a>
+          <a href="agents.html" class="">Agents</a>
+          <a href="neighborhoods.html" class="">Neighborhoods</a>
+          <a href="blog.html" class="">Blog</a>
+          <a href="about.html" class="">About</a>
+          <a href="contact.html" class="">Contact</a>
+        </nav>
+        <div class="controls">
+          <button
+            id="themeToggle"
+            class="btn ghost"
+            onclick="toggleTheme()"
+            aria-pressed="false"
+            aria-label="Toggle dark mode"
+          >
+            🌓
+          </button>
+          <button
+            id="hamburger"
+            class="hamburger"
+            aria-label="Menu"
+            aria-controls="navLinks"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="content" class="container">
+      <section class="hero">
+        <p class="badge">Property</p>
+        <h1 id="title">Property Title</h1>
+        <div class="meta" id="address"></div>
+      </section>
+
+      <section class="section">
+        <div class="grid cols-2">
+          <div class="card">
+            <img id="heroImage" src="" alt="Property photo" loading="lazy" />
+          </div>
+          <div class="card card-content">
+            <div class="price" id="price"></div>
+            <div class="meta" id="facts"></div>
+            <p id="desc"></p>
+            <p><a id="agentLink" class="btn" href="#">Contact Agent</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Gallery</h2>
+        <div id="gallery" class="grid cols-3"></div>
+      </section>
+
+      <script>
+        (async function () {
+          const id = $params.get("id");
+          const props = await loadJSON("data/properties.json");
+          const p = props.find((x) => String(x.id) === String(id)) || props[0];
+          $("#title").text(p.title);
+          $("#address").text(`${p.address}, ${p.city}`);
+          $("#price").text($formatPrice(p.price));
+          $("#facts").text(
+            `${p.beds} bd · ${p.baths} ba · ${p.sqft.toLocaleString()} sqft`
+          );
+          $("#desc").text(p.description);
+          $("#heroImage").attr("src", p.images[0]).attr("alt", p.title);
+          $("#agentLink").attr("href", `agent-detail.html?id=${p.agentId}`);
+
+          const $g = $("#gallery").empty();
+          p.images.forEach((src, i) =>
+            $g.append(
+              `<div class="card"><img src="${src}" alt="${p.title} photo ${
+                i + 1
+              }" loading="lazy"/></div>`
+            )
+          );
+        })();
+      </script>
+    </main>
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © 2025 RealtyStarter — A student-friendly real estate template.
+        </div>
+        <div>
+          <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
