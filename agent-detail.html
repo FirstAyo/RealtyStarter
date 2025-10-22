@@ -6,8 +6,6 @@
     <title>Agent Profile · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/agent-detail.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -70,40 +68,6 @@
         <h2>Agent's Listings</h2>
         <div id="agentProps" class="grid cols-3"></div>
       </section>
-
-      <script>
-        (async function () {
-          const id = $params.get("id");
-          const agents = await loadJSON("data/agents.json");
-          const a =
-            agents.find((x) => String(x.id) === String(id)) || agents[0];
-          $("#name").text(a.name);
-          $("#title").text(a.title);
-          $("#bio").text(a.bio);
-          $("#photo").attr("src", a.photo).attr("alt", a.name);
-          $("#contact").html(
-            `<a href="mailto:${a.email}">${a.email}</a> · <a href="tel:${a.phone}">${a.phone}</a>`
-          );
-
-          const props = await loadJSON("data/properties.json");
-          const $grid = $("#agentProps").empty();
-          props
-            .filter((p) => String(p.agentId) === String(a.id))
-            .forEach((p) =>
-              $grid.append(`
-    <article class="card">
-      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
-                p.title
-              }</a></h3>
-        <div class="price">${$formatPrice(p.price)}</div>
-        <div class="meta">${p.city}</div>
-      </div>
-    </article>`)
-            );
-        })();
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -116,5 +80,47 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const id = $params.get("id");
+        const agents = await loadJSON("data/agents.json");
+        const a = agents.find((x) => String(x.id) === String(id)) || agents[0];
+        $("#name").text(a.name);
+        $("#title").text(a.title);
+        $("#bio").text(a.bio);
+        $("#photo").attr("src", a.photo).attr("alt", a.name);
+        $("#contact").html(
+          `<a href="mailto:${a.email}">${a.email}</a> · <a href="tel:${a.phone}">${a.phone}</a>`
+        );
+
+        const props = await loadJSON("data/properties.json");
+        const $grid = $("#agentProps").empty();
+        props
+          .filter((p) => String(p.agentId) === String(a.id))
+          .forEach((p) =>
+            $grid.append(`
+    <article class="card">
+      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
+              p.title
+            }</a></h3>
+        <div class="price">${$formatPrice(p.price)}</div>
+        <div class="meta">${p.city}</div>
+      </div>
+    </article>`)
+          );
+      })();
+    </script>
   </body>
 </html>

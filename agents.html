@@ -6,8 +6,6 @@
     <title>Agents · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/agents.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -56,24 +54,6 @@
       <section class="section">
         <div id="agentGrid" class="grid cols-3"></div>
       </section>
-
-      <script>
-        $(async function () {
-          const agents = await loadJSON("data/agents.json");
-          const $grid = $("#agentGrid");
-          agents.forEach((a) =>
-            $grid.append(`
-    <article class="card">
-      <img src="${a.photo}" alt="${a.name}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="agent-detail.html?id=${a.id}">${a.name}</a></h3>
-        <div class="meta">${a.title}</div>
-        <p><a class="btn" href="agent-detail.html?id=${a.id}">View Profile</a></p>
-      </div>
-    </article>`)
-          );
-        });
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -86,5 +66,32 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const agents = await loadJSON("data/agents.json");
+        const $grid = $("#agentGrid");
+        agents.forEach((a) =>
+          $grid.append(`
+    <article class="card">
+      <img src="${a.photo}" alt="${a.name}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="agent-detail.html?id=${a.id}">${a.name}</a></h3>
+        <div class="meta">${a.title}</div>
+        <p><a class="btn" href="agent-detail.html?id=${a.id}">View Profile</a></p>
+      </div>
+    </article>`)
+        );
+      })();
+    </script>
   </body>
 </html>

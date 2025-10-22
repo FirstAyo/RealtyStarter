@@ -6,8 +6,6 @@
     <title>Home · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -70,56 +68,6 @@
         <h2>From the Blog</h2>
         <div id="homeBlog" class="grid cols-3"></div>
       </section>
-
-      <script>
-        // Load 3 featured properties + 3 blog posts
-        $(async function () {
-          try {
-            const props = await loadJSON("data/properties.json");
-            const featured = props.slice(0, 3);
-            const $grid = $("#featuredGrid");
-            featured.forEach((p) =>
-              $grid.append(`
-      <article class="card">
-        <img src="${p.images[0]}" alt="${p.title} exterior" loading="lazy"/>
-        <div class="card-content">
-          <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
-                p.title
-              }</a></h3>
-          <div class="price">${$formatPrice(p.price)}</div>
-          <div class="meta">${p.beds} bd · ${
-                p.baths
-              } ba · ${p.sqft.toLocaleString()} sqft</div>
-          <div class="meta">${p.address}, ${p.city}</div>
-          <p><a class="btn" href="listing-detail.html?id=${
-            p.id
-          }">View Details</a></p>
-        </div>
-      </article>`)
-            );
-
-            const posts = await loadJSON("data/blog.json");
-            const latest = posts.slice(0, 3);
-            const $blog = $("#homeBlog");
-            latest.forEach((b) =>
-              $blog.append(`
-      <article class="card">
-        <img src="${b.coverImage}" alt="${b.title}" loading="lazy"/>
-        <div class="card-content">
-          <h3 class="card-title"><a href="post.html?id=${b.id}">${
-                b.title
-              }</a></h3>
-          <div class="meta">By ${b.author} · ${$formatDate(b.date)}</div>
-          <p>${b.excerpt}</p>
-          <p><a class="btn" href="post.html?id=${b.id}">Read more</a></p>
-        </div>
-      </article>`)
-            );
-          } catch (e) {
-            console.error(e);
-          }
-        });
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -132,5 +80,64 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      // Load 3 featured properties + 3 blog posts
+      $(async function () {
+        try {
+          const props = await loadJSON("data/properties.json");
+          const featured = props.slice(0, 3);
+          const $grid = $("#featuredGrid");
+          featured.forEach((p) =>
+            $grid.append(`
+      <article class="card">
+        <img src="${p.images[0]}" alt="${p.title} exterior" loading="lazy"/>
+        <div class="card-content">
+          <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
+              p.title
+            }</a></h3>
+          <div class="price">${$formatPrice(p.price)}</div>
+          <div class="meta">${p.beds} bd · ${
+              p.baths
+            } ba · ${p.sqft.toLocaleString()} sqft</div>
+          <div class="meta">${p.address}, ${p.city}</div>
+          <p><a class="btn" href="listing-detail.html?id=${
+            p.id
+          }">View Details</a></p>
+        </div>
+      </article>`)
+          );
+
+          const posts = await loadJSON("data/blog.json");
+          const latest = posts.slice(0, 3);
+          const $blog = $("#homeBlog");
+          latest.forEach((b) =>
+            $blog.append(`
+      <article class="card">
+        <img src="${b.coverImage}" alt="${b.title}" loading="lazy"/>
+        <div class="card-content">
+          <h3 class="card-title"><a href="post.html?id=${b.id}">${
+              b.title
+            }</a></h3>
+          <div class="meta">By ${b.author} · ${$formatDate(b.date)}</div>
+          <p>${b.excerpt}</p>
+          <p><a class="btn" href="post.html?id=${b.id}">Read more</a></p>
+        </div>
+      </article>`)
+          );
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    </script>
   </body>
 </html>

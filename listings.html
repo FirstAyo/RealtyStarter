@@ -6,8 +6,6 @@
     <title>Listings · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/listings.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -79,55 +77,6 @@
       <section class="section">
         <div id="listingsGrid" class="grid cols-3"></div>
       </section>
-
-      <script>
-        let PROPS = [];
-        function render(props) {
-          const $grid = $("#listingsGrid").empty();
-          if (!props.length) {
-            $grid.append("<p>No results found.</p>");
-            return;
-          }
-          props.forEach((p) =>
-            $grid.append(`
-    <article class="card">
-      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
-              p.title
-            }</a></h3>
-        <div class="price">${$formatPrice(p.price)}</div>
-        <div class="meta">${p.beds} bd · ${
-              p.baths
-            } ba · ${p.sqft.toLocaleString()} sqft</div>
-        <div class="meta">${p.address}, ${p.city}</div>
-        <p><a class="btn" href="listing-detail.html?id=${
-          p.id
-        }">View Details</a></p>
-      </div>
-    </article>`)
-          );
-        }
-
-        function applyFilters() {
-          const q = $("#q").val().toLowerCase();
-          const max = parseInt($("#price").val() || Infinity, 10);
-          const out = PROPS.filter(
-            (p) =>
-              (p.title.toLowerCase().includes(q) ||
-                p.city.toLowerCase().includes(q) ||
-                p.address.toLowerCase().includes(q)) &&
-              p.price <= max
-          );
-          render(out);
-        }
-
-        $(async function () {
-          PROPS = await loadJSON("data/properties.json");
-          render(PROPS);
-          $("#filters").on("input change", "input,select", applyFilters);
-        });
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -140,5 +89,68 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      let PROPS = [];
+
+      function render(props) {
+        const $grid = $("#listingsGrid").empty();
+        if (!props.length) {
+          $grid.append("<p>No results found.</p>");
+          return;
+        }
+        props.forEach((p) =>
+          $grid.append(`
+        <article class="card">
+          <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
+          <div class="card-content">
+            <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
+            p.title
+          }</a></h3>
+            <div class="price">${$formatPrice(p.price)}</div>
+            <div class="meta">${p.beds} bd · ${
+            p.baths
+          } ba · ${p.sqft.toLocaleString()} sqft</div>
+            <div class="meta">${p.address}, ${p.city}</div>
+            <p><a class="btn" href="listing-detail.html?id=${
+              p.id
+            }">View Details</a></p>
+          </div>
+        </article>`)
+        );
+      }
+
+      function applyFilters() {
+        const q = $("#q").val().toLowerCase();
+        const max = parseInt($("#price").val() || Infinity, 10);
+        const out = PROPS.filter(
+          (p) =>
+            (p.title.toLowerCase().includes(q) ||
+              p.city.toLowerCase().includes(q) ||
+              p.address.toLowerCase().includes(q)) &&
+            p.price <= max
+        );
+        render(out);
+      }
+
+      (async function () {
+        try {
+          PROPS = await loadJSON("data/properties.json");
+          render(PROPS);
+          $("#filters").on("input change", "input,select", applyFilters);
+        } catch (e) {
+          console.error(e);
+        }
+      })(); /* <-- important */
+    </script>
   </body>
 </html>

@@ -6,8 +6,6 @@
     <title>Neighborhood Detail · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/neighborhood-detail.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -66,36 +64,6 @@
         <h2>Homes in this area</h2>
         <div id="hoodProps" class="grid cols-3"></div>
       </section>
-
-      <script>
-        (async function () {
-          const id = $params.get("id");
-          const hoods = await loadJSON("data/neighborhoods.json");
-          const hood =
-            hoods.find((x) => String(x.id) === String(id)) || hoods[0];
-          $("#nTitle").text(hood.name);
-          $("#nDesc").text(hood.description);
-          $("#nImg").attr("src", hood.heroImage).attr("alt", hood.name);
-
-          const props = await loadJSON("data/properties.json");
-          const $grid = $("#hoodProps").empty();
-          props
-            .filter((p) => String(p.neighborhoodId) === String(hood.id))
-            .forEach((p) =>
-              $grid.append(`
-    <article class="card">
-      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
-                p.title
-              }</a></h3>
-        <div class="price">${$formatPrice(p.price)}</div>
-        <div class="meta">${p.city}</div>
-      </div>
-    </article>`)
-            );
-        })();
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -108,5 +76,43 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const id = $params.get("id");
+        const hoods = await loadJSON("data/neighborhoods.json");
+        const hood = hoods.find((x) => String(x.id) === String(id)) || hoods[0];
+        $("#nTitle").text(hood.name);
+        $("#nDesc").text(hood.description);
+        $("#nImg").attr("src", hood.heroImage).attr("alt", hood.name);
+
+        const props = await loadJSON("data/properties.json");
+        const $grid = $("#hoodProps").empty();
+        props
+          .filter((p) => String(p.neighborhoodId) === String(hood.id))
+          .forEach((p) =>
+            $grid.append(`
+    <article class="card">
+      <img src="${p.images[0]}" alt="${p.title}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
+              p.title
+            }</a></h3>
+        <div class="price">${$formatPrice(p.price)}</div>
+        <div class="meta">${p.city}</div>
+      </div>
+    </article>`)
+          );
+      })();
+    </script>
   </body>
 </html>

@@ -6,8 +6,6 @@
     <title>Neighborhoods · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/neighborhoods.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -56,23 +54,6 @@
       <section class="section">
         <div id="hoodGrid" class="grid cols-3"></div>
       </section>
-
-      <script>
-        $(async function () {
-          const hoods = await loadJSON("data/neighborhoods.json");
-          const $grid = $("#hoodGrid");
-          hoods.forEach((n) =>
-            $grid.append(`
-    <article class="card">
-      <img src="${n.heroImage}" alt="${n.name}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="neighborhood-detail.html?id=${n.id}">${n.name}</a></h3>
-        <p>${n.description}</p>
-      </div>
-    </article>`)
-          );
-        });
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -85,5 +66,31 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const hoods = await loadJSON("data/neighborhoods.json");
+        const $grid = $("#hoodGrid");
+        hoods.forEach((n) =>
+          $grid.append(`
+    <article class="card">
+      <img src="${n.heroImage}" alt="${n.name}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="neighborhood-detail.html?id=${n.id}">${n.name}</a></h3>
+        <p>${n.description}</p>
+      </div>
+    </article>`)
+        );
+      })();
+    </script>
   </body>
 </html>

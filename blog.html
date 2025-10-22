@@ -6,8 +6,6 @@
     <title>Blog · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/blog.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -56,26 +54,6 @@
       <section class="section">
         <div id="blogGrid" class="grid cols-3"></div>
       </section>
-
-      <script>
-        $(async function () {
-          const posts = await loadJSON("data/blog.json");
-          const $grid = $("#blogGrid");
-          posts.forEach((b) =>
-            $grid.append(`
-    <article class="card">
-      <img src="${b.coverImage}" alt="${b.title}" loading="lazy"/>
-      <div class="card-content">
-        <h3 class="card-title"><a href="post.html?id=${b.id}">${
-              b.title
-            }</a></h3>
-        <div class="meta">By ${b.author} · ${$formatDate(b.date)}</div>
-        <p>${b.excerpt}</p>
-      </div>
-    </article>`)
-          );
-        });
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -88,5 +66,34 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const posts = await loadJSON("data/blog.json");
+        const $grid = $("#blogGrid");
+        posts.forEach((b) =>
+          $grid.append(`
+    <article class="card">
+      <img src="${b.coverImage}" alt="${b.title}" loading="lazy"/>
+      <div class="card-content">
+        <h3 class="card-title"><a href="post.html?id=${b.id}">${
+            b.title
+          }</a></h3>
+        <div class="meta">By ${b.author} · ${$formatDate(b.date)}</div>
+        <p>${b.excerpt}</p>
+      </div>
+    </article>`)
+        );
+      })();
+    </script>
   </body>
 </html>

@@ -6,8 +6,6 @@
     <title>Property Detail · RealtyStarter</title>
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/listing-detail.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="assets/js/main.js"></script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -72,32 +70,6 @@
         <h2>Gallery</h2>
         <div id="gallery" class="grid cols-3"></div>
       </section>
-
-      <script>
-        (async function () {
-          const id = $params.get("id");
-          const props = await loadJSON("data/properties.json");
-          const p = props.find((x) => String(x.id) === String(id)) || props[0];
-          $("#title").text(p.title);
-          $("#address").text(`${p.address}, ${p.city}`);
-          $("#price").text($formatPrice(p.price));
-          $("#facts").text(
-            `${p.beds} bd · ${p.baths} ba · ${p.sqft.toLocaleString()} sqft`
-          );
-          $("#desc").text(p.description);
-          $("#heroImage").attr("src", p.images[0]).attr("alt", p.title);
-          $("#agentLink").attr("href", `agent-detail.html?id=${p.agentId}`);
-
-          const $g = $("#gallery").empty();
-          p.images.forEach((src, i) =>
-            $g.append(
-              `<div class="card"><img src="${src}" alt="${p.title} photo ${
-                i + 1
-              }" loading="lazy"/></div>`
-            )
-          );
-        })();
-      </script>
     </main>
     <footer>
       <div class="container footer-inner">
@@ -110,5 +82,40 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      (async function () {
+        const id = $params.get("id");
+        const props = await loadJSON("data/properties.json");
+        const p = props.find((x) => String(x.id) === String(id)) || props[0];
+        $("#title").text(p.title);
+        $("#address").text(`${p.address}, ${p.city}`);
+        $("#price").text($formatPrice(p.price));
+        $("#facts").text(
+          `${p.beds} bd · ${p.baths} ba · ${p.sqft.toLocaleString()} sqft`
+        );
+        $("#desc").text(p.description);
+        $("#heroImage").attr("src", p.images[0]).attr("alt", p.title);
+        $("#agentLink").attr("href", `agent-detail.html?id=${p.agentId}`);
+
+        const $g = $("#gallery").empty();
+        p.images.forEach((src, i) =>
+          $g.append(
+            `<div class="card"><img src="${src}" alt="${p.title} photo ${
+              i + 1
+            }" loading="lazy"/></div>`
+          )
+        );
+      })();
+    </script>
   </body>
 </html>
