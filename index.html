@@ -92,7 +92,7 @@
 
     <script>
       // Load 3 featured properties + 3 blog posts
-      $(async function () {
+      (async function () {
         try {
           const props = await loadJSON("data/properties.json");
           const featured = props.slice(0, 3);
@@ -137,7 +137,7 @@
         } catch (e) {
           console.error(e);
         }
-      });
+      })();
     </script>
   </body>
 </html>
