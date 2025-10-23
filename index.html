@@ -46,18 +46,59 @@
         </div>
       </div>
     </header>
+
     <main id="content" class="container">
-      <section class="hero">
-        <p class="badge">Starter Template</p>
-        <h1>Find homes you’ll love in beautiful neighborhoods</h1>
-        <p>
-          Fully static multi‑page site with JSON‑powered listings, dark mode,
-          and a responsive menu. Edit each page and CSS file independently.
-        </p>
-        <p>
-          <a class="btn" href="listings.html">Browse Listings</a>
-          <a class="btn ghost" href="about.html">About Us</a>
-        </p>
+      <!-- hero slider for the homepage -->
+      <section class="hero hero-with-slider">
+        <div
+          class="hero-slider"
+          id="heroSlider"
+          role="region"
+          aria-label="Featured properties slideshow"
+        >
+          <div class="slides">
+            <figure class="slide is-active">
+              <img
+                src="https://picsum.photos/seed/hero1/1400/700"
+                alt="Modern family home exterior at dusk"
+                loading="eager"
+              />
+              <figcaption>Modern Family Home • 3bd · 2ba</figcaption>
+            </figure>
+            <figure class="slide">
+              <img
+                src="https://picsum.photos/seed/hero2/1400/700"
+                alt="Bright condo living room with city view"
+                loading="lazy"
+              />
+              <figcaption>Downtown Condo • City Views</figcaption>
+            </figure>
+            <figure class="slide">
+              <img
+                src="https://picsum.photos/seed/hero3/1400/700"
+                alt="Townhome with landscaped yard"
+                loading="lazy"
+              />
+              <figcaption>Cozy Townhome • Quiet Street</figcaption>
+            </figure>
+          </div>
+          <button class="nav prev" aria-label="Previous slide">‹</button>
+          <button class="nav next" aria-label="Next slide">›</button>
+          <div class="dots" aria-label="Slide navigation"></div>
+        </div>
+
+        <div class="hero-content">
+          <p class="badge">Starter Template</p>
+          <h1>Find homes you’ll love in beautiful neighborhoods</h1>
+          <p>
+            Fully static multi‑page site with JSON‑powered listings, dark mode,
+            and a responsive menu. Edit each page and CSS file independently.
+          </p>
+          <p>
+            <a class="btn" href="listings.html">Browse Listings</a>
+            <a class="btn ghost" href="about.html">About Us</a>
+          </p>
+        </div>
       </section>
 
       <section class="section">
@@ -70,6 +111,7 @@
         <div id="homeBlog" class="grid cols-3"></div>
       </section>
     </main>
+
     <footer>
       <div class="container footer-inner">
         <div>
@@ -88,57 +130,9 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <!-- Then your main script -->
+    <!-- Then your shared script -->
     <script src="assets/js/main.js"></script>
-
-    <script>
-      // Load 3 featured properties + 3 blog posts
-      (async function () {
-        try {
-          const props = await loadJSON("data/properties.json");
-          const featured = props.slice(0, 3);
-          const $grid = $("#featuredGrid");
-          featured.forEach((p) =>
-            $grid.append(`
-      <article class="card">
-        <img src="${p.images[0]}" alt="${p.title} exterior" loading="lazy"/>
-        <div class="card-content">
-          <h3 class="card-title"><a href="listing-detail.html?id=${p.id}">${
-              p.title
-            }</a></h3>
-          <div class="price">${$formatPrice(p.price)}</div>
-          <div class="meta">${p.beds} bd · ${
-              p.baths
-            } ba · ${p.sqft.toLocaleString()} sqft</div>
-          <div class="meta">${p.address}, ${p.city}</div>
-          <p><a class="btn" href="listing-detail.html?id=${
-            p.id
-          }">View Details</a></p>
-        </div>
-      </article>`)
-          );
-
-          const posts = await loadJSON("data/blog.json");
-          const latest = posts.slice(0, 3);
-          const $blog = $("#homeBlog");
-          latest.forEach((b) =>
-            $blog.append(`
-      <article class="card">
-        <img src="${b.coverImage}" alt="${b.title}" loading="lazy"/>
-        <div class="card-content">
-          <h3 class="card-title"><a href="post.html?id=${b.id}">${
-              b.title
-            }</a></h3>
-          <div class="meta">By ${b.author} · ${$formatDate(b.date)}</div>
-          <p>${b.excerpt}</p>
-          <p><a class="btn" href="post.html?id=${b.id}">Read more</a></p>
-        </div>
-      </article>`)
-          );
-        } catch (e) {
-          console.error(e);
-        }
-      })();
-    </script>
+    <!-- Page script: slider + homepage data -->
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
