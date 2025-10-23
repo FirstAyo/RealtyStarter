@@ -1,61 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy · RealtyStarter</title>
-  <link rel="stylesheet" href="assets/css/common.css" />
-  <link rel="stylesheet" href="assets/css/privacy.css" />
- 
-  
-</head>
-<body>
-<a href="#content" class="skip-link">Skip to content</a>
-<header class="site-header">
-  <div class="container navbar">
-    <a class="logo" href="index.html" aria-label="Realty Starter Home">Realty<span>Starter</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="index.html" class="">Home</a>
-<a href="listings.html" class="">Listings</a>
-<a href="agents.html" class="">Agents</a>
-<a href="neighborhoods.html" class="">Neighborhoods</a>
-<a href="blog.html" class="">Blog</a>
-<a href="about.html" class="">About</a>
-<a href="contact.html" class="">Contact</a>
-    </nav>
-    <div class="controls">
-      <button id="themeToggle" class="btn ghost" onclick="toggleTheme()" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
-      <button id="hamburger" class="hamburger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-<main id="content" class="container">
-  
-<section class="hero">
-  <p class="badge">Policy</p>
-  <h1>Privacy Policy</h1>
-</section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy · RealtyStarter</title>
 
-<section class="section card card-content">
-  <p>This is a sample privacy policy. Replace with your actual policy. We do not collect personal data on this static template.</p>
-</section>
+    <!-- Primary SEO -->
+    <meta
+      name="description"
+      content="Privacy Policy for the RealtyStarter real estate website template. Understand what data your live site may collect, how it's used, and how to customize this policy."
+    />
+    <link rel="canonical" href="https://example.com/privacy.html" />
+    <meta name="robots" content="index, follow" />
 
-</main>
-<footer>
-  <div class="container footer-inner">
-    <div>© 2025 RealtyStarter — A student-friendly real estate template.</div>
-    <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a></div>
-  </div>
-</footer>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Privacy Policy · RealtyStarter" />
+    <meta
+      property="og:description"
+      content="Transparent privacy practices for the RealtyStarter real estate website template. GDPR/CCPA-ready guidance for your brand."
+    />
+    <meta property="og:url" content="https://example.com/privacy.html" />
+    <meta
+      property="og:image"
+      content="https://example.com/assets/og/privacy-og.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="RealtyStarter — Privacy Policy cover graphic"
+    />
 
-<!-- jQuery FIRST -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-<!-- Then your main script -->
-<script src="assets/js/main.js"></script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy · RealtyStarter" />
+    <meta
+      name="twitter:description"
+      content="Transparent privacy practices for the RealtyStarter real estate template."
+    />
+    <meta
+      name="twitter:image"
+      content="https://example.com/assets/og/privacy-og.png"
+    />
 
-</body>
+    <!-- Schema.org (JSON‑LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "url": "https://example.com/privacy.html",
+        "description": "Privacy policy for the RealtyStarter real estate website template.",
+        "datePublished": "2024-01-01",
+        "dateModified": "2025-10-23",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Privacy Policy",
+              "item": "https://example.com/privacy.html"
+            }
+          ]
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "RealtyStarter",
+          "url": "https://example.com/"
+        }
+      }
+    </script>
+
+    <!-- Organization (edit for production) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Your Realty Brand",
+        "url": "https://example.com",
+        "logo": "https://example.com/assets/og/logo.png",
+        "sameAs": [
+          "https://www.facebook.com/yourpage",
+          "https://www.instagram.com/yourpage",
+          "https://x.com/yourpage"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-604-555-1234",
+            "contactType": "customer support",
+            "areaServed": "CA",
+            "availableLanguage": ["English"]
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/privacy.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="logo" href="index.html" aria-label="Realty Starter Home"
+          >Realty<span>Starter</span></a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="listings.html">Listings</a>
+          <a href="agents.html">Agents</a>
+          <a href="neighborhoods.html">Neighborhoods</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="controls">
+          <button
+            id="themeToggle"
+            class="btn ghost"
+            onclick="toggleTheme()"
+            aria-pressed="false"
+            aria-label="Toggle dark mode"
+          >
+            🌓
+          </button>
+          <button
+            id="hamburger"
+            class="hamburger"
+            aria-label="Menu"
+            aria-controls="navLinks"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <p class="badge">Policy</p>
+        <h1>Privacy Policy</h1>
+        <p class="meta">Last updated: October 23, 2025</p>
+      </section>
+
+      <!-- CONTENT WRAPPER (two-column on desktop) -->
+      <section class="section">
+        <div class="policy-grid card">
+          <!-- STICKY SIDEBAR ToC -->
+          <aside class="policy-toc card-content" aria-label="Table of contents">
+            <strong>On this page</strong>
+            <ol>
+              <li><a href="#who-we-are">Who We Are</a></li>
+              <li><a href="#data-we-collect">Data We Collect</a></li>
+              <li><a href="#how-we-use-data">How We Use Data</a></li>
+              <li><a href="#cookies">Cookies & Tracking</a></li>
+              <li><a href="#third-parties">Third‑Party Services</a></li>
+              <li><a href="#data-retention">Data Retention</a></li>
+              <li><a href="#rights">Your Privacy Rights</a></li>
+              <li><a href="#security">Data Security</a></li>
+              <li><a href="#international">International Transfers</a></li>
+              <li><a href="#children">Children’s Privacy</a></li>
+              <li><a href="#changes">Changes to this Policy</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ol>
+          </aside>
+
+          <!-- MAIN ARTICLE -->
+          <article class="policy-body card-content">
+            <h2 id="who-we-are">1. Who We Are</h2>
+            <p>
+              <strong>RealtyStarter</strong> is a free, educational real estate
+              website template. It ships without a backend and stores demo
+              content in local JSON files. If you deploy this template for your
+              own brand, replace references to “RealtyStarter” with your
+              business details below.
+            </p>
+            <ul>
+              <li><strong>Legal Entity:</strong> Your Realty Brand, Inc.</li>
+              <li>
+                <strong>Address:</strong> 123 Example St, Vancouver, BC, Canada
+              </li>
+              <li><strong>Email:</strong> privacy@example.com</li>
+              <li><strong>Phone:</strong> +1 (604) 555‑1234</li>
+            </ul>
+
+            <h2 id="data-we-collect">2. Data We Collect</h2>
+            <p>
+              This template itself does not collect personal data automatically.
+              However, your live website may collect:
+            </p>
+            <ul>
+              <li>
+                <strong>Contact form data</strong> (name, email, message) if you
+                connect a form handler or backend.
+              </li>
+              <li>
+                <strong>Usage data</strong> via analytics tools (page views,
+                device info, approximate location).
+              </li>
+              <li>
+                <strong>Cookies</strong> for preferences (e.g., dark/light mode)
+                or analytics.
+              </li>
+              <li>
+                <strong>Listing inquiries</strong> (saved properties, favorites)
+                if you implement such features.
+              </li>
+            </ul>
+
+            <h2 id="how-we-use-data">3. How We Use Data</h2>
+            <ul>
+              <li>Respond to inquiries and provide customer support.</li>
+              <li>
+                Operate, maintain, and improve site performance and content.
+              </li>
+              <li>Personalize your experience, including saved preferences.</li>
+              <li>Measure the effectiveness of marketing campaigns.</li>
+              <li>Comply with legal obligations and enforce our Terms.</li>
+            </ul>
+
+            <h2 id="cookies">4. Cookies & Tracking</h2>
+            <p>
+              We may use cookies and similar technologies to remember
+              preferences and analyze traffic. You can manage or disable cookies
+              in your browser settings. If you deploy consent tools (e.g., a
+              cookie banner), update this section to describe the categories you
+              use (e.g., strictly necessary, analytics, marketing).
+            </p>
+
+            <h2 id="third-parties">5. Third‑Party Services</h2>
+            <p>
+              If you enable third‑party tools, they may process personal data
+              according to their own policies. Examples include:
+            </p>
+            <ul>
+              <li>Analytics (e.g., Google Analytics, Plausible)</li>
+              <li>Email & CRM (e.g., Mailchimp, HubSpot)</li>
+              <li>Maps and embeds (e.g., Google Maps)</li>
+              <li>Hosting/CDN (e.g., Netlify, Vercel, Cloudflare)</li>
+            </ul>
+            <p>
+              Review and link to each provider’s privacy policy in your
+              production site.
+            </p>
+
+            <h2 id="data-retention">6. Data Retention</h2>
+            <p>
+              We keep personal data only as long as necessary for the purposes
+              described above, or as required by law. Set specific retention
+              periods for forms, analytics, and account data if you enable them.
+            </p>
+
+            <h2 id="rights">7. Your Privacy Rights</h2>
+            <p>
+              Depending on your location, you may have rights to access,
+              correct, delete, or export your personal data, and to object to or
+              restrict certain processing.
+            </p>
+            <ul>
+              <li>
+                <strong>GDPR (EU/UK):</strong> Access, rectification, erasure,
+                portability, restriction, objection.
+              </li>
+              <li>
+                <strong>CCPA/CPRA (California):</strong> Know, delete, correct,
+                opt‑out of sale/share; limit sensitive data use.
+              </li>
+              <li>
+                <strong>PIPEDA (Canada):</strong> Access and correction rights;
+                reasonable purposes and safeguards.
+              </li>
+            </ul>
+            <p>
+              To exercise rights, contact us at
+              <a href="mailto:privacy@example.com">privacy@example.com</a>. We
+              will verify your request consistent with applicable laws.
+            </p>
+
+            <h2 id="security">8. Data Security</h2>
+            <p>
+              We implement reasonable administrative, technical, and physical
+              safeguards appropriate to the nature of the data processed. No
+              online service is 100% secure, so please use caution when sharing
+              information.
+            </p>
+
+            <h2 id="international">9. International Transfers</h2>
+            <p>
+              If we transfer personal data across borders, we use appropriate
+              safeguards (e.g., Standard Contractual Clauses) where required by
+              law.
+            </p>
+
+            <h2 id="children">10. Children’s Privacy</h2>
+            <p>
+              Our site is not directed to children under 13 (or the age defined
+              by local law). We do not knowingly collect data from children. If
+              you believe a child provided data, contact us to request deletion.
+            </p>
+
+            <h2 id="changes">11. Changes to this Policy</h2>
+            <p>
+              We may update this policy from time to time. The “Last updated”
+              date reflects the most recent changes. Material changes will be
+              highlighted on this page.
+            </p>
+
+            <h2 id="contact">12. Contact Us</h2>
+            <p>
+              Questions about this policy? Reach us at
+              <a href="mailto:privacy@example.com">privacy@example.com</a> or by
+              mail: 123 Example St, Vancouver, BC, Canada.
+            </p>
+
+            <hr />
+            <p class="meta">
+              This page is a template. Customize it with your company’s exact
+              data flows, vendors, and legal requirements. This is not legal
+              advice.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © 2025 RealtyStarter — A student-friendly real estate template.
+        </div>
+        <div>
+          <a href="privacy.html" aria-current="page">Privacy</a> ·
+          <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery FIRST -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Then your main script -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

@@ -1,1 +1,200 @@
-.hero h1::after{content:" · Privacy";color:var(--muted);font-weight:400;font-size:.9rem}
+/* ===========================
+   Privacy Page Styles (Aligned Structure)
+   File: assets/css/privacy.css
+   =========================== */
+
+/* Hero crumb */
+.hero h1::after {
+  content: " · Privacy";
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+/* Content Wrapper: Policy grid (sidebar + article) */
+/* Mobile-first: stack in a single column (ToC first, then content) */
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "toc"
+    "main";
+  gap: 1rem; /* tighter gap on small screens */
+  align-items: start;
+  overflow: visible; /* don't break sticky later */
+}
+
+.policy-grid > .card-content {
+  padding: clamp(1rem, 1.2rem + 1vw, 2rem);
+}
+
+/* Desktop two-column */
+@media (min-width: 1080px) {
+  .policy-grid {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+    grid-template-areas: "toc main";
+    gap: 1.5rem;
+  }
+  .policy-toc {
+    position: sticky;
+    top: 92px; /* below sticky header */
+    height: fit-content;
+  }
+}
+
+/* ToC styles */
+.policy-toc {
+  background: color-mix(in srgb, var(--surface) 95%, var(--background));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: static;
+  box-sizing: border-box;
+  grid-area: toc;
+}
+
+/* Sticky ToC on desktop only */
+@media (min-width: 1080px) {
+  .policy-toc {
+    position: sticky;
+    top: 92px;
+  }
+}
+
+/* Defensive: ancestors shouldn’t clip sticky */
+.section,
+.policy-grid,
+.policy-body,
+.policy-toc {
+  overflow: visible;
+}
+
+/* .policy-toc {
+  grid-area: toc;
+} */
+.policy-body {
+  grid-area: main;
+}
+
+/* When JS takes over pinning */
+.policy-toc.js-fixed {
+  z-index: 5; /* keep above article content if overlapping */
+}
+.policy-toc strong {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.policy-toc ol {
+  margin: 0.25rem 0 0 1rem;
+  padding: 0;
+}
+.policy-toc li {
+  margin: 0.25rem 0;
+}
+.policy-toc a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.policy-toc a:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Article typography */
+.policy-body {
+  line-height: 1.75;
+  color: var(--text);
+  font-size: clamp(1rem, 0.96rem + 0.22vw, 1.08rem);
+  max-width: 78ch;
+}
+.policy-body p {
+  margin: 0 0 1rem 0;
+}
+.policy-body ul,
+.policy-body ol {
+  margin: 0.25rem 0 1.25rem 1.25rem;
+  padding: 0;
+}
+.policy-body li {
+  margin: 0.35rem 0;
+}
+.policy-body li::marker {
+  color: var(--muted);
+}
+.policy-body h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.6rem);
+  line-height: 1.25;
+}
+.policy-body h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.25rem);
+}
+.policy-body hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+.policy-body a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.policy-body a:hover {
+  color: color-mix(in srgb, var(--primary) 85%, black 0%);
+  border-color: currentColor;
+}
+
+/* Meta callout */
+.policy-body .meta {
+  color: var(--muted);
+  font-size: 0.94rem;
+  background: color-mix(in srgb, var(--primary) 7%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--primary) 35%, var(--border) 65%);
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+}
+
+/* Anchor offset for sticky header */
+[id] {
+  scroll-margin-top: 92px;
+}
+
+/* Subtle page reveal */
+.policy-grid {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: policyFade 0.45s ease forwards;
+}
+@keyframes policyFade {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Dark mode tweaks */
+:root[data-theme="dark"] .policy-toc {
+  background: color-mix(in srgb, var(--surface) 80%, #000);
+  border-color: color-mix(in srgb, var(--border) 60%, #000);
+}
+:root[data-theme="dark"] .policy-grid {
+  background: color-mix(in srgb, var(--card, var(--surface)) 92%, #000);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .policy-grid {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .policy-toc a,
+  .policy-body a {
+    transition: none;
+  }
+}
