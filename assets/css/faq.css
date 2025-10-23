@@ -1,1 +1,86 @@
-.hero h1::after{content:" · FAQ";color:var(--muted);font-weight:400;font-size:.9rem}
+/* ===== FAQ Page Styles ===== */
+.hero h1::after {
+  content: " · FAQ";
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.faq-accordion {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card, var(--surface));
+  overflow: hidden;
+}
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0.9rem 1rem;
+  font-size: 1.03rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+.faq-q .chev {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+  opacity: 0.8;
+}
+.faq-q[aria-expanded="true"] .chev {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+  border-top: 1px dashed var(--border);
+}
+.faq-a.open {
+  grid-template-rows: 1fr;
+}
+.faq-a > div {
+  overflow: hidden;
+  padding: 0 1rem;
+}
+.faq-a p {
+  margin: 0.9rem 0 1rem;
+}
+
+/* Hover + focus states */
+.faq-q:hover {
+  background: color-mix(in srgb, var(--surface) 94%, var(--background));
+}
+.faq-q:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 60%, transparent);
+  outline-offset: 2px;
+}
+.faq-q:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .faq-a {
+    transition: none;
+  }
+  .faq-q .chev {
+    transition: none;
+  }
+}

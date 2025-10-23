@@ -1,1 +1,118 @@
-.hero h1::after{content:" · Terms";color:var(--muted);font-weight:400;font-size:.9rem}
+/* ===========================
+   Terms Page Styles
+   File: assets/css/terms.css
+   =========================== */
+
+/* Hero crumb */
+.hero h1::after{
+  content:" · Terms";
+  color:var(--muted);
+  font-weight:400;
+  font-size:.9rem;
+}
+
+/* Mobile-first: stack ToC and article */
+.terms-grid{
+  --terms-max: 1200px;
+  margin: 0 auto;
+  max-width: var(--terms-max);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "toc"
+    "main";
+  gap: 1rem;
+  align-items: start;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card, var(--surface));
+  box-shadow: var(--shadow);
+  overflow: visible;
+}
+.terms-grid > .card-content{
+  padding: clamp(1rem, 1.1rem + 1vw, 2rem);
+}
+
+.terms-toc{ grid-area: toc; position: static; }
+.terms-body{ grid-area: main; }
+
+/* Desktop: two columns + sticky ToC */
+@media (min-width:1080px){
+  .terms-grid{
+    grid-template-columns: 320px minmax(0,1fr);
+    grid-template-areas: "toc main";
+    gap: 1.5rem;
+  }
+  .terms-toc{ position: sticky; top: 92px; }
+}
+
+/* ToC styles */
+.terms-toc{
+  background: color-mix(in srgb, var(--surface) 95%, var(--background));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.terms-toc strong{ display:inline-block; margin-bottom:.4rem; }
+.terms-toc ol{ margin:.25rem 0 0 1rem; padding:0; }
+.terms-toc li{ margin:.25rem 0; }
+.terms-toc a{
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.terms-toc a:hover{
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Article typography */
+.terms-body{
+  line-height: 1.75;
+  color: var(--text);
+  font-size: clamp(1rem, 0.96rem + 0.22vw, 1.08rem);
+  max-width: 78ch;
+}
+.terms-body p{ margin: 0 0 1rem 0; }
+.terms-body ul, .terms-body ol{ margin:.25rem 0 1.25rem 1.25rem; padding:0; }
+.terms-body li{ margin:.35rem 0; }
+.terms-body li::marker{ color: var(--muted); }
+.terms-body h2{
+  margin: 2rem 0 .75rem;
+  font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.6rem);
+  line-height: 1.25;
+}
+.terms-body h3{
+  margin: 1.25rem 0 .5rem;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.25rem);
+}
+.terms-body hr{ border:0; height:1px; background:var(--border); margin:2rem 0; }
+.terms-body a{
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  transition: color .15s ease, border-color .15s ease;
+}
+.terms-body a:hover{ color: color-mix(in srgb, var(--primary) 85%, black 0%); border-color: currentColor; }
+
+/* Anchor offset for sticky header */
+[id]{ scroll-margin-top: 92px; }
+
+/* Subtle page reveal */
+.terms-grid{ opacity:0; transform: translateY(10px); animation: termsFade .45s ease forwards; }
+@keyframes termsFade{ to{ opacity:1; transform:none; } }
+
+/* Dark mode tweaks */
+:root[data-theme="dark"] .terms-toc{
+  background: color-mix(in srgb, var(--surface) 80%, #000);
+  border-color: color-mix(in srgb, var(--border) 60%, #000);
+}
+:root[data-theme="dark"] .terms-grid{
+  background: color-mix(in srgb, var(--card, var(--surface)) 92%, #000);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .terms-grid{ animation:none; opacity:1; transform:none; }
+  .terms-toc a, .terms-body a{ transition:none; }
+}

@@ -4,24 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ · RealtyStarter</title>
+  <meta name="description" content="Frequently asked questions about buying, selling, financing, and managing real estate. Learn how to get pre‑approved, estimate closing costs, and more." />
+  <link rel="canonical" href="https://example.com/faq.html" />
+  <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="assets/css/common.css" />
   <link rel="stylesheet" href="assets/css/faq.css" />
-  
-  
 </head>
 <body>
 <a href="#content" class="skip-link">Skip to content</a>
+
 <header class="site-header">
   <div class="container navbar">
     <a class="logo" href="index.html" aria-label="Realty Starter Home">Realty<span>Starter</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="index.html" class="">Home</a>
-<a href="listings.html" class="">Listings</a>
-<a href="agents.html" class="">Agents</a>
-<a href="neighborhoods.html" class="">Neighborhoods</a>
-<a href="blog.html" class="">Blog</a>
-<a href="about.html" class="">About</a>
-<a href="contact.html" class="">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="listings.html">Listings</a>
+      <a href="agents.html">Agents</a>
+      <a href="neighborhoods.html">Neighborhoods</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="controls">
       <button id="themeToggle" class="btn ghost" onclick="toggleTheme()" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
@@ -31,29 +33,28 @@
     </div>
   </div>
 </header>
+
 <main id="content" class="container">
-  
-<section class="hero">
-  <p class="badge">Help</p>
-  <h1>Frequently Asked Questions</h1>
-</section>
+  <section class="hero">
+    <p class="badge">Help</p>
+    <h1>Frequently Asked Questions</h1>
+    <p class="meta">Updated October 23, 2025</p>
+  </section>
 
-<section class="section">
-  <div class="card card-content">
-    <h3 class="card-title">Do I need a server to run this?</h3>
-    <p>Yes. Because pages load local JSON files, open it with a simple local server (e.g., VS Code Live Server, <code>python -m http.server</code>, etc.)</p>
-    <h3 class="card-title">How do I customize colors?</h3>
-    <p>Edit <code>assets/css/common.css</code> CSS variables for both light and dark themes.</p>
-    <h3 class="card-title">Can I add pages?</h3>
-    <p>Absolutely—just duplicate an HTML page and create a matching CSS file.</p>
-  </div>
-</section>
-
+  <section class="section">
+    <div class="card card-content">
+      <div id="faqIntro" class="meta" style="margin-bottom:1rem">
+        Click a question to reveal the answer. Opening a new question will collapse the others.
+      </div>
+      <div id="faqList" class="faq-accordion" role="list"></div>
+    </div>
+  </section>
 </main>
+
 <footer>
   <div class="container footer-inner">
     <div>© 2025 RealtyStarter — A student-friendly real estate template.</div>
-    <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a></div>
+    <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html" aria-current="page">FAQ</a></div>
   </div>
 </footer>
 
@@ -63,6 +64,7 @@
         crossorigin="anonymous"></script>
 <!-- Then your main script -->
 <script src="assets/js/main.js"></script>
-
+<!-- Page script -->
+<script src="assets/js/faq.js"></script>
 </body>
 </html>
